@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .input-group input {
+    width: 300px;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+  }
+
+  .button-group button {
+    margin: 0 5px;
+    padding: 8px 20px;
+    font-size: 16px;
+  }
+  .button-group1 button {
+    margin: 0 5px;
+    padding: 8px 20px;
+    font-size: 16px;
+  }
+  .button-group1 button {
+    display: flex;
+    align-items: center;
+  }

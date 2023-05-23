@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ceasar Cipher</title>
+  <link rel="stylesheet" href="style.css"
+  <script src="path/to/FileSaver.js"></script>
+  
+  
+</head>
+<body>
+  <h1>Caesar Cipher</h1>
+
+  <div class="container">
+    <div class="input-group">
+      <label for="plaintext">Plaintext:</label>
+      <input type="text" id="plaintext" placeholder="Enter plaintext" />
+    </div>
+
+    <div class="input-group">
+      <label for="key">Key (Shift value):</label>
+      <input type="number" id="key" placeholder="Enter key" />
+    </div>
+
+    <div class="input-group">
+      <label for="output">Output:</label>
+      <input type="text" id="output" readonly />
+    </div>
+
+    <div class="button-group">
+      <button onclick="encryptText()">Encrypt</button>
+      <button onclick="decryptText()">Decrypt</button>
+    </div>
+    <div class ="button-group1">
+
+        <button onclick="saveFile()">save File</button>
+       
+        
+  </div>
+
+  <script>
+    function encryptText() {
+      const plaintext = document.getElementById("plaintext").value;
+      const key = parseInt(document.getElementById("key").value);
+
+      let ciphertext = "";
+      for (let i = 0; i < plaintext.length; i++) {
+        const char = plaintext[i];
+        if (char.match(/[a-z]/i)) {
+          const charCode = plaintext.charCodeAt(i);
+          let encryptedCharCode;
+
+          if (char === char.toLowerCase()) {
+            encryptedCharCode = ((charCode - 97 + key) % 26) + 97;
+          } else {
+            encryptedCharCode = ((charCode - 65 + key) % 26) + 65;
+          }
+
+          ciphertext += String.fromCharCode(encryptedCharCode);
+        } else {
+          ciphertext += char;
+        }
+      }
+
+      document.getElementById("output").value = ciphertext;
+    }
+
+    function decryptText() {
+      const ciphertext = document.getElementById("plaintext").value;
+      const key = parseInt(document.getElementById("key").value);
+
+      let plaintext = "";
+      for (let i = 0; i < ciphertext.length; i++) {
+        const char = ciphertext[i];
+        if (char.match(/[a-z]/i)) {
+          const charCode = ciphertext.charCodeAt(i);
+          let decryptedCharCode;
+
+          if (char === char.toLowerCase()) {
+            decryptedCharCode = ((charCode - 97 - key + 26) % 26) + 97;
+          } else {
+            decryptedCharCode = ((charCode - 65 - key + 26) % 26) + 65;
+          }
+
+          plaintext += String.fromCharCode(decryptedCharCode);
+        } else {
+          plaintext += char;
+        }
+      }
+
+      document.getElementById("output").value = plaintext;
+    }
+    function saveFile(){
+      const save = document.getElementById("output").value = file;
+      
+    }
+
+  </script>
+</body>
+</html>
+
